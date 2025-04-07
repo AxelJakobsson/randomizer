@@ -1,4 +1,7 @@
-fetch("/champs.json")
+
+
+function random_button() {
+    fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
     .then((response) => response.json())
     .then((json) => {
         
@@ -10,8 +13,16 @@ fetch("/champs.json")
         
         console.log(map[random])
         console.log(map[random].name)
+        console.log(map[random].image)
         console.log(random)
+
+        document.getElementById("champion_name").innerHTML = map[random].name;
+        const searchPic = "https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/" + map[random].image.full;
+        document.getElementById("champion_image").src = searchPic;
 })
+}
+
+// https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/Akali.png
 
 console.log("Hello World!")
 
