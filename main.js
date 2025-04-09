@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 var validChamps = []
 
+=======
+>>>>>>> f1e23744f6458dbac93930c61f0763ad21787628
 function random_button() {
     fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
     .then((response) => response.json())
@@ -48,4 +51,9 @@ function random_button() {
         document.getElementById("champion_image").src = searchPic;
 })
 }
+<<<<<<< HEAD
 // https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/Akali.png
+=======
+
+console.log("Hello World!")
+>>>>>>> f1e23744f6458dbac93930c61f0763ad21787628
