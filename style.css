@@ -81,3 +81,8 @@ li > a {
     border-radius: 3px;
 }
 
+div img {
+    width: 128px;
+    height: 128px;
+}
+

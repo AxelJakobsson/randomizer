@@ -15,6 +15,7 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             const img = document.createElement("img")
             element.img = img
             img.src = "https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/" + element.image.full
+ 
             img.style.opacity = "1" // stop button from needing to be clicked twice to change opacity
             img.addEventListener("click", clicked)
             img.addEventListener("mousedown", (event) => {event.preventDefault()})
@@ -39,15 +40,37 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             
             container.appendChild(img)
             container.appendChild(p)
-            
+
             document.querySelector(".grid").appendChild(container)
+
+
+            if (element.name == "Graves") {
+                console.log("test test test")
+
+                const container = document.createElement("div")
+
+                const img = document.createElement("img")
+                img.src = "GyroP.webp"
+     
+                img.addEventListener("click", clicked)
+                img.addEventListener("mousedown", (event) => {event.preventDefault()})
+                
+                const p = document.createElement("p")
+                p.textContent = "Gyro"
+
+                container.appendChild(img)
+                container.appendChild(p)
+                document.querySelector(".grid").appendChild(container)
+            }
+            
+
+            
 
             element.owned = localStorage.getItem(element.name) === "true"
             if (localStorage.getItem(element.name) == null) {
                 element.owned = true
                 localStorage.setItem(element.name, "true")
             }
-            console.log(element.name + " " + element.owned)
 
             if (!element.owned) {
                 setOpacity(0.5, img, p)
@@ -56,7 +79,10 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             if (element.owned) {
                 setOpacity(1, img, p)
             } 
+
         });
+        
+
 });
 
 function showUnOwned() {
