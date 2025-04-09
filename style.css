@@ -86,3 +86,6 @@ div img {
     height: 128px;
 }
 
+#champion_image {
+    display: none;
+}

@@ -64,9 +64,10 @@ function random_button() {
             searchPic = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + selectedChampion + "_" + num +".jpg"
         }
         
-        
+
         document.getElementById("champion_name").innerHTML = "<b> " + map[i].name + "</b>"
         document.getElementById("champion_image").src = searchPic;
+        document.getElementById("champion_image").style.display = "inline";
 
         previousRolledChampion = selectedChampion
 })
