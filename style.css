@@ -47,3 +47,37 @@ li > a {
     padding: 8px;
 }
 
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+}
+
+.grid p {
+    max-width: 128px;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.grid button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.grid img {
+    border-radius: 3px;
+}
+

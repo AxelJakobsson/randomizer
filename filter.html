@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="main.js"></script>
+    <script src="filter.js"></script>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <header>
@@ -14,17 +13,17 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="filter.html">Filter</a></li>
             
+            <button onclick="showUnOwned()">Check unowned champs</button>
+            <button onclick="clearStorage()">Clear</button>
+            <button onclick="filterAll()">Filter all</button>
         </ul>
     </header>
-    <div class="container">
-        <p id="champion_name"></p>
-        <img src="" id="champion_image">
-        <p id="champion_owned"></p>
-        <div>
-            <button onclick="random_button()" id="random_button">Randomize</button>
-        </div>
+
+
+    <div class="grid">
+
     </div>
-    <div class="grid"></div>
+
 
     
 </body>
