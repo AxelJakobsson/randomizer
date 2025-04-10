@@ -41,28 +41,14 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             container.appendChild(img)
             container.appendChild(p)
 
+            
+
             document.querySelector(".grid").appendChild(container)
 
+            customChar(element.name)
 
-            if (element.name == "Graves") {
-                console.log("test test test")
 
-                const container = document.createElement("div")
 
-                const img = document.createElement("img")
-                img.src = "GyroP.webp"
-     
-                img.addEventListener("click", clicked)
-                img.addEventListener("mousedown", (event) => {event.preventDefault()})
-                
-                const p = document.createElement("p")
-                p.textContent = "Gyro"
-
-                container.appendChild(img)
-                container.appendChild(p)
-                document.querySelector(".grid").appendChild(container)
-            }
-            
 
             
 
@@ -122,7 +108,43 @@ function setOpacity(num, img, p) {
     p.style.opacity = num;
 }
 
+function customChar(previousChar) {
+    if (previousChar == "Gwen") {
+            console.log("test test test")
 
+            const container = document.createElement("div")
+
+            const img = document.createElement("img")
+            img.src = "GyroP.webp"
+ 
+            img.addEventListener("click", (event) => { changeSrc(img, "2fab9f8d92e9b982652eac015155965e.jpg", "GyroP.webp", p)})
+            img.addEventListener("mousedown", (event) => {event.preventDefault()})
+            
+            const p = document.createElement("p")
+            p.textContent = "Gyro"
+
+            container.appendChild(img)
+            container.appendChild(p)
+            document.querySelector(".grid").appendChild(container)
+        }   
+    }
+
+function changeSrc(image, newSrc, originalSrc, p) {
+    console.log("original src: " + originalSrc)
+    console.log("current src: " + image.src)
+    console.log("new src: " + newSrc)
+
+    if (image.src != "http://127.0.0.1:5500/2fab9f8d92e9b982652eac015155965e.jpg") {
+        console.log("Changing src")
+        image.src = newSrc
+        p.textContent = "Johnny"
+    }
+    else {
+        image.src = originalSrc
+        p.textContent = "Gyro"
+    }
+    
+}
 
 
 
