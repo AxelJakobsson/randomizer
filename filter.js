@@ -2,10 +2,10 @@ let loading = true
 
 let defaultBackgroundColor = document.body.style.backgroundColor
 
-let map = []; // Declare map in the outer scope
+let map = [];
 
-let totalImages = 170; // Total number of images to load
-let loadedImages = 0; // Counter for loaded images
+let totalImages = 170; 
+let loadedImages = 0; 
 
 const loader = document.querySelector(".loader");
 
