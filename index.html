@@ -14,18 +14,18 @@
         <ul onmousemove="moveMouse(event)">
             <li><a href="/">Home</a></li>
             <li ><a href="filter.html">Filter</a></li>
-            <button data-selectedRole = "Top" class="roleButtons"  id="topRole" onclick="clickedRole(id)">Top</button>
-            <button data-selectedRole = "Jungle" class="roleButtons" id="jungleRole" onclick="clickedRole(id)">Jungle</button>
-            <button data-selectedRole = "Middle" class="roleButtons" id="midRole" onclick="clickedRole(id)" >Middle</button>
-            <button data-selectedRole = "Bottom" class="roleButtons" id="bottomRole" onclick="clickedRole(id)">Bottom</button>
-            <button data-selectedRole = "Support" class="roleButtons" id="supportRole" onclick="clickedRole(id)">Support</button>
+            <button class="roleButtons"  id="topRole" onclick="clickedRole(id)">Top</button>
+            <button class="roleButtons" id="jungleRole" onclick="clickedRole(id)">Jg</button>
+            <button class="roleButtons" id="midRole" onclick="clickedRole(id)" >Mid</button>
+            <button class="roleButtons" id="bottomRole" onclick="clickedRole(id)">Bot</button>
+            <button class="roleButtons" id="supportRole" onclick="clickedRole(id)">Supp</button>
         </ul>
         <div class="holder">
             <div class="slider"></div>
         </div>
         
     </header>
-    <input type="text" name="number" class="number">
+    <input type="text" name="number" class="number" style="visibility: hidden;">
     <div class="container">
         <p id="champion_name"></p>
         <img src="" id="champion_image">
