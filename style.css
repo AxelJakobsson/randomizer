@@ -1,25 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+}
+
 body {
     background-color: rgba(227, 255, 227, 0.965);
+
+    height: calc(100vh - 32px);
+    width: 100%;
+
 }
 
 .container{
-    position: relative;
-
-    width: 60vw;
     height: 60vh;
-    top: 10rem;
 
-    margin: 0;
-    padding: 0;
-
-    margin: auto;
-    text-align: center;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 #champion_name {
     font-size: 2rem;
     color: #000;
-    margin-top: 1rem;
 }
 
 #random_button {
@@ -27,11 +33,20 @@ body {
     width: 6rem;
 }
 
+header {
+    top: 0;
+    background-color: black;
+    width: 100%;
+}
+
 header > ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
     height: 8vh;
+    margin: 0;
+    width: 50rem;
+
+
 
     position: relative;
 }
@@ -40,7 +55,8 @@ header > ul {
 
 .holder {
     top: 5px;
-    width: 420px;
+ 
+    width: 100vw;
     height: 40px;
 
     position: absolute;
@@ -51,7 +67,7 @@ header > ul {
     background: linear-gradient(
         0.25turn,
         transparent,
-        pink,
+        rgb(255, 213, 0),
         transparent
     );
     width: 50px;
@@ -63,6 +79,7 @@ header > ul {
 }
 
 li{
+    margin: 8px;
     float: left;
     text-align: center;
     
@@ -73,14 +90,20 @@ li{
 li a{
     display: block;
     margin: 6px;
-    
-    z-index: 10;
-    
 
+    color: white;
+    z-index: 10;
+
+    transition: all 0.75s ease-in-out 1s;
+}
+
+li a:hover {
+    color: red;
+    opacity: 0;
 }
 
 ul button {
-    margin: 4px;
+    margin: 16px;
     z-index: 10;
 }
 
@@ -131,10 +154,12 @@ input {
 
 #champion_image {
     display: none;
+    margin: 1rem;
 }
 
 .roleButtons {
     opacity: 0.5;
+    min-width: 35px;
 }
 
 .loader {
