@@ -112,7 +112,36 @@ function random_button() {
                 }
 
                 if (element.owned){
-                    validChamps.push(element.name)
+                    if (topRoleSelected || jungleRoleSelected || midRoleSelected || bottomRoleSelected || supportRoleSelected) {
+                        if (topRoleSelected) {
+                            if (roleTop.includes(element.name)) {
+                                validChamps.push(element.name)
+                            }
+                        }
+                        if (jungleRoleSelected) {
+                            if (roleJungle.includes(element.name)) {
+                                validChamps.push(element.name)
+                            }
+                        }
+                        if (midRoleSelected) {
+                            if (roleMid.includes(element.name)) {
+                                validChamps.push(element.name)
+                            }
+                        }
+                        if (bottomRoleSelected) {
+                            if (roleBottom.includes(element.name)) {
+                                validChamps.push(element.name)
+                            }
+                        }
+                        if (supportRoleSelected) {
+                            if (roleSupport.includes(element.name)) {
+                                validChamps.push(element.name)
+                            }
+                        }
+                    }
+                    else {
+                        validChamps.push(element.name)
+                    }
                 }
             });
 
@@ -174,10 +203,10 @@ function random_button() {
             }
 
             let alreadyRolled = 0
-            let sleepTimer = 100
+            let sleepTimer = 50
 
             function rollChampion() {
-                sleepTimer **= 1.008;
+                // sleepTimer **= 1.002
                 if (alreadyRolled < amountOfRolls) {
 
                     var random = Math.floor(Math.random() * validChamps.length);
@@ -271,7 +300,7 @@ else {
     
 
 function moveMouse(event) {
-    if (event.clientX < 408 && event.clientX > 26) {
+    if (event.clientX > 26) {
         movingSlider.style.left = event.clientX-26 + "px";
     }
 }
