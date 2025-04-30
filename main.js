@@ -30,6 +30,7 @@ var roleBottom = ["Aphelios", "Ashe", "Brand", "Caitlyn", "Corki", "Draven", "Ez
 var roleSupport = ["Alistar", "Amumu", "Bard", "Blitzcrank", "Brand", "Braum", "Janna", "Karma", "Leona", "Lulu", "Lux", "Maokai", "Milio", "Morgana", "Nami", "Nautilus", "Neeko", "Pantheon", "Poppy", "Pyke", "Rakan", "Rell", "Renata Glasc", "Senna", "Seraphine", "Sett", "Shaco", "Sona", "Soraka", "Swain", "Tahm Kench", "Taric", "Tresh", "Vel'Koz", "Xerath", "Yuumi", "Zilean", "Zyra"]
 
 const movingSlider = document.querySelector(".slider")
+const supportButtonCoordinates = supportButton.getBoundingClientRect();
 
 input = document.querySelector(".number")
 input.addEventListener("keyup", function() {
@@ -300,7 +301,7 @@ else {
     
 
 function moveMouse(event) {
-    if (event.clientX > 26) {
+    if (event.clientX > 26 && event.clientX < supportButtonCoordinates.right - 10) {
         movingSlider.style.left = event.clientX-26 + "px";
     }
 }

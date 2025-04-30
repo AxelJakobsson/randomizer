@@ -9,6 +9,7 @@ html {
 
 body {
     background-color: rgba(227, 255, 227, 0.965);
+    overflow-x: hidden; /* Stop side scrolling */ 
 
     height: calc(100vh - 32px);
     width: 100%;
@@ -16,7 +17,7 @@ body {
 }
 
 .container{
-    height: 60vh;
+    height: 80vh;
 
     display: flex;
     flex-direction: column;
@@ -94,12 +95,12 @@ li a{
     color: white;
     z-index: 10;
 
-    transition: all 0.75s ease-in-out 1s;
+    transition: all 0.5s ease-in-out;
 }
 
 li a:hover {
-    color: red;
-    opacity: 0;
+    color: rgb(210, 210, 210);
+    opacity: 1;
 }
 
 ul button {
@@ -153,8 +154,10 @@ input {
 
 
 #champion_image {
-    display: none;
+    /* display: none; */
     margin: 1rem;
+    height: 128px;
+    width: 128px;
 }
 
 .roleButtons {

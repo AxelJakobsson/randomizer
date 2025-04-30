@@ -7,24 +7,27 @@ let map = [];
 let totalImages = 170; 
 let loadedImages = 0; 
 
+const movingSlider = document.querySelector(".slider")
+
+let filterAllButton = document.querySelector(".filterButton")
+let filterAllButtonCoordinates = filterAllButton.getBoundingClientRect();
+
 const loader = document.querySelector(".loader");
 
 
 fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
     .then((response) => response.json())
     .then((json) => {
-        
         map = Object.keys(json.data).map((key) => json.data[key])
   
         map.forEach(element => {
 
-            const container = document.createElement("div")
+            const container = document.createElement("div") // div containing text and image
 
             const img = document.createElement("img")
             element.img = img
             img.src = "https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/" + element.image.full
  
-            img.style.opacity = "1" // stop button from needing to be clicked twice to change opacity
             img.setAttribute("id", element.name)
 
             // track number of loaded images
@@ -70,11 +73,6 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             document.querySelector(".grid").appendChild(container)
 
             customChar(element.name)
-
-
-
-
-            
 
             element.owned = localStorage.getItem(element.name) === "true"
             if (localStorage.getItem(element.name) == null) {
@@ -150,6 +148,7 @@ function customChar(previousChar) {
             
             const p = document.createElement("p")
             p.textContent = "Gyro"
+            p.classList.add("customCharacterText")
 
             container.appendChild(img)
             container.appendChild(p)
@@ -166,7 +165,41 @@ function changeSrc(image, newSrc, originalSrc, p) {
         image.src = originalSrc
         p.textContent = "Gyro"
     }
-    
+}
+
+function search() {
+    const customCharacter = document.querySelector(".customChar")
+    const customCharacterText = document.querySelector(".customCharacterText")
+    let searchValue = document.getElementById("searchValue")
+    let search = searchValue.value
+    console.log(search)
+ 
+    if (search !== "") {
+        customCharacter.style.display = "none"
+        customCharacterText.style.visibility = "hidden"
+    }
+    else {
+        customCharacter.style.display = "block"
+        customCharacterText.style.visibility = "visible"
+    }
+    map.forEach(element => {
+        
+        if (!element.name.includes(search)) {
+            element.img.style.display = "none";
+            element.p.style.visibility = "hidden";
+        }
+        else {
+            element.img.style.display = "block";
+            element.p.style.visibility = "visible"; 
+        }
+    })
+}
+
+function moveMouse(event) {
+    if (event.clientX > 26 && event.clientX < filterAllButtonCoordinates.right) {
+        movingSlider.style.left = event.clientX-26 + "px";
+    }
+
 }
 
 

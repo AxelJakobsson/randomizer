@@ -9,19 +9,19 @@
 </head>
 <body>
     <header>
-        <ul>
+        <ul onmousemove="moveMouse(event)">
             <li><a href="/">Home</a></li>
             <li><a href="filter.html">Filter</a></li>
-            <li></li>
-            <li></li>
-            <li></li>
 
-            
-            
             <button onclick="showUnOwned()">Check unowned champs</button>
             <button onclick="clearStorage()">Clear</button>
-            <button onclick="filterAll()">Filter all</button>
+            <button onclick="searchButton()">search</button>
+            <input type="text" onkeyup="search()" id="searchValue">
+            <button onclick="filterAll()" class="filterButton">Filter all</button>
         </ul>
+        <div class="holder">
+            <div class="slider"></div>
+        </div>
     </header>
 
 
