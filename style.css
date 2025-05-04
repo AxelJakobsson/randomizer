@@ -118,10 +118,9 @@ input {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
 
-    margin-top: 2rem;
+    margin: 2rem;
 }
 
 .grid p {

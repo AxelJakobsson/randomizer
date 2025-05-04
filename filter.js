@@ -23,6 +23,9 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
         map.forEach(element => {
 
             const container = document.createElement("div") // div containing text and image
+            container.className = element.name.replace(/[ '.&]/g, "") + "_div"
+            
+
 
             const img = document.createElement("img")
             element.img = img
@@ -52,6 +55,7 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             p.textContent = element.name
             
             function clicked() {
+                console.log(element.name.replace(/[ '.]/g, "") + "_div"); // replace spaces, ', ., and & with "", /g to make it global and affect all
                 if (img.style.opacity == "1") {
                     
                     setOpacity(0.5, element.img, element.p)
@@ -87,9 +91,6 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             if (element.owned) {
                 setOpacity(1, img, p)
             } 
-
-            console.log(element.name)
-            console.log(loading)
         });
 
 });
@@ -133,9 +134,8 @@ function setOpacity(num, img, p) {
 
 function customChar(previousChar) {
     if (previousChar == "Gwen") {
-            console.log("test test test")
-
             const container = document.createElement("div")
+            container.classList.add("customCharacterDiv")
 
             const img = document.createElement("img")
             img.src = "images/GyroP.webp"
@@ -168,30 +168,37 @@ function changeSrc(image, newSrc, originalSrc, p) {
 }
 
 function search() {
+    const customCharacterDiv = document.querySelector(".customCharacterDiv")
     const customCharacter = document.querySelector(".customChar")
     const customCharacterText = document.querySelector(".customCharacterText")
     let searchValue = document.getElementById("searchValue")
-    let search = searchValue.value
+    let search = searchValue.value.toLowerCase()
     console.log(search)
  
     if (search !== "") {
         customCharacter.style.display = "none"
         customCharacterText.style.visibility = "hidden"
+        customCharacterDiv.style.display = "none"
     }
     else {
         customCharacter.style.display = "block"
         customCharacterText.style.visibility = "visible"
+        customCharacterDiv.style.display = "block"
     }
     map.forEach(element => {
+        let elementDiv = document.querySelector("." + element.name.replace(/[ '.&]/g, "") + "_div"); // replace spaces, ', ., and & with "", /g to make it global and affect all
         
-        if (!element.name.includes(search)) {
+        if (!element.name.toLowerCase().includes(search)) {
             element.img.style.display = "none";
             element.p.style.visibility = "hidden";
+            elementDiv.style.display = "none"
         }
         else {
             element.img.style.display = "block";
             element.p.style.visibility = "visible"; 
+            elementDiv.style.display = "block"
         }
+        console.log("end")
     })
 }
 
@@ -199,7 +206,6 @@ function moveMouse(event) {
     if (event.clientX > 26 && event.clientX < filterAllButtonCoordinates.right) {
         movingSlider.style.left = event.clientX-26 + "px";
     }
-
 }
 
 
