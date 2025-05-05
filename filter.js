@@ -9,8 +9,8 @@ let loadedImages = 0;
 
 const movingSlider = document.querySelector(".slider")
 
-let filterAllButton = document.querySelector(".filterButton")
-let filterAllButtonCoordinates = filterAllButton.getBoundingClientRect();
+let searchButton = document.querySelector("#searchValue")
+let searchButtonCoordinates = searchButton.getBoundingClientRect();
 
 const loader = document.querySelector(".loader");
 
@@ -54,8 +54,7 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             element.p = p
             p.textContent = element.name
             
-            function clicked() {
-                console.log(element.name.replace(/[ '.]/g, "") + "_div"); // replace spaces, ', ., and & with "", /g to make it global and affect all
+            function clicked() {console.log
                 if (img.style.opacity == "1") {
                     
                     setOpacity(0.5, element.img, element.p)
@@ -203,7 +202,7 @@ function search() {
 }
 
 function moveMouse(event) {
-    if (event.clientX > 26 && event.clientX < filterAllButtonCoordinates.right) {
+    if (event.clientX > 26 && event.clientX < searchButtonCoordinates.right) {
         movingSlider.style.left = event.clientX-26 + "px";
     }
 }
