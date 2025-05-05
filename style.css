@@ -264,6 +264,7 @@ canvas {
         margin: 16px auto;
     }
     .grid {
+        margin: 0.3rem;
         margin-top: 4rem;
     }
   }
