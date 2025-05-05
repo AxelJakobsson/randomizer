@@ -140,7 +140,7 @@ li a:hover {
 }
 
 input {
-    margin: 1.5rem;
+    margin: 16px 1.5rem;
     height: 1.5rem;
 
     font-size: 1.1rem;
@@ -253,3 +253,17 @@ input {
 canvas {
     pointer-events: none;
 }
+
+@media screen and (width <= 600px) {
+    header > ul {
+        flex-wrap: wrap;
+        align-items: start;
+    }
+
+    input {
+        margin: 16px auto;
+    }
+    .grid {
+        margin-top: 4rem;
+    }
+  }
