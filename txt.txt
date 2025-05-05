@@ -1,0 +1,14 @@
+if topRoleSelected {
+    forEach in map {
+        if map[i] is in topRole
+            add map[i] to validChamps
+    }
+}
+
+if midRoleSelected {
+    forEach in map {
+        if map[i] is in midRole
+            add map[i] to validChamps
+    }
+}
+
