@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>f u donau</title>
-
+    <title>Randomizer</title>
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body>
+<body class="dark-mode">
     <header>
-
         <ul onmousemove="moveMouse(event)">
             <li><a href="/">Home</a></li>
             <li ><a href="filter.html">Filter</a></li>
+            <li><a href="help.html">Help</a></li>
             <button class="roleButtons" id="topRole" onclick="clickedRole(id)">Top</button>
             <button class="roleButtons" id="jungleRole" onclick="clickedRole(id)">Jg</button>
             <button class="roleButtons" id="midRole" onclick="clickedRole(id)" >Mid</button>
             <button class="roleButtons" id="bottomRole" onclick="clickedRole(id)">Bot</button>
             <button class="roleButtons" id="supportRole" onclick="clickedRole(id)">Supp</button>
+            <button id="darkModeSwitch" onclick="switchDarkMode()">Dark mode</button>
         </ul>
         <div class="holder">
             <div class="slider"></div>
@@ -28,7 +28,7 @@
     <input type="text" name="number" class="number" style="visibility: hidden;">
     <div class="container">
         <p id="champion_name"><b>...</b></p>
-        <img src="images\images.png" id="champion_image">
+        <img src="images\placeholder.png" id="champion_image">
         <p id="champion_owned"></p>
         <div>
             <button onclick="random_button()" id="random_button">Randomize</button>
@@ -39,7 +39,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.8.1/tsparticles.confetti.bundle.min.js"></script>
-
 <script src="main.js"></script>
 </body>    
 

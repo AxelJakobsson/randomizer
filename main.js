@@ -48,6 +48,7 @@ function clickedRole(role) {
         if (topRoleSelected) {
             topRoleSelected = false;
             topButton.style.opacity = "0.5";
+            topButton.style.backgroundColor = "w"
         } else {
             topRoleSelected = true;
             topButton.style.opacity = "1";
@@ -306,6 +307,10 @@ function moveMouse(event) {
     }
 }
 
+
+function switchDarkMode() {
+    console.log("Dark mdoe")
+}
 
 // https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/Akali.png
 

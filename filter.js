@@ -48,13 +48,11 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             img.addEventListener("click", clicked)
             img.addEventListener("mousedown", (event) => {event.preventDefault()})
 
-
-            
             const p = document.createElement("p")
             element.p = p
             p.textContent = element.name
             
-            function clicked() {console.log
+            function clicked() {
                 if (img.style.opacity == "1") {
                     
                     setOpacity(0.5, element.img, element.p)
@@ -70,8 +68,6 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             
             container.appendChild(img)
             container.appendChild(p)
-
-            
 
             document.querySelector(".grid").appendChild(container)
 
@@ -89,20 +85,9 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
 
             if (element.owned) {
                 setOpacity(1, img, p)
-            } 
+            }
         });
-
 });
-
-function showUnOwned() {
-    var notOwned = []
-    map.forEach(element => {
-        if (element.owned == false) {
-            notOwned.push(" " + element.name)
-        }
-    });
-    console.log("You don't own:"  + notOwned)
-}
 
 function clearStorage() {
     if (confirm("Are you sure?")) {
@@ -206,10 +191,3 @@ function moveMouse(event) {
         movingSlider.style.left = event.clientX-26 + "px";
     }
 }
-
-
-
-
-
-
-

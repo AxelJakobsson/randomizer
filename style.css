@@ -18,21 +18,41 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 
+:root {
+    --background-color: hsl(3, 100%, 90%);
+    --text-color: hsl(0, 0%, 100%);
+    --header-button-text-color: hsl(340, 85%, 55%);
+    --header-button-color: hsl(0, 95%, 95%);
+    --header-background-color: hsl(340, 85%, 55%);
+    --randomize-button-background-color: hsl(0,0%, 100%);
+    --randomize-button-text-color: hsl(0, 0%, 0%);
+    --text-on-background: hsl(0, 0%, 0%);
+}
+
+.dark-mode {
+    --background-color: hsl(3, 15%, 10%);
+    --text-color: hsl(0, 0%, 100%);
+    --header-button-text-color: hsl(340, 85%, 55%);
+    --header-button-color: hsl(0, 95%, 95%);
+    --header-background-color: hsl(0, 15%, 25%);
+    --randomize-button-background-color: hsl(0,10%, 90%);
+    --randomize-button-text-color: hsl(0, 0%, 0%);
+    --text-on-background: hsl(0, 10%, 90%);
+}
+
 * {
     margin: 0;
     padding: 0;
-    
-
     font-family: 'Barlow500';
 }
 
 html {
-    width: 100%;
+    width: 100vw;
     overflow-x: hidden;
 }
 
 body {
-    background-color: rgba(227, 255, 227, 0.965);
+    background-color: var(--background-color);
     overflow-x: hidden; /* Stop side scrolling */ 
 
     height: calc(100vh);
@@ -49,12 +69,16 @@ body {
 }
 #champion_name {
     font-size: 2rem;
-    color: #000;
+    color: var(--text-on-background);
 }
 
 #random_button {
     height: 4rem;
     width: 6rem;
+    background-color: var(--randomize-button-background-color);
+    color: var(--randomize-button-text-color);
+    border: none;
+    border-radius: 9%;
 
     font-family: 'Barlow500';
 }
@@ -62,7 +86,8 @@ body {
 
 header {
     top: 0;
-    background-color: black;
+    background-color: var(--header-background-color);
+    opacity: 1;
     width: 100%;
 }
 
@@ -86,6 +111,12 @@ header button {
     height: 1.5rem;
     min-width: 4rem;
     max-width: fit-content;
+
+    color: var(--header-button-text-color);
+    background-color: var(--header-button-color);
+    border: none;
+    border-radius: 6.5%;
+    padding: 0.1rem;
 
     font-size: 1rem;
     margin: 16px;
@@ -129,7 +160,7 @@ li a{
     display: block;
     margin: 6px;
 
-    color: white;
+    color: #fefefe;
     z-index: 10;
 
     transition: all 0.5s ease-in-out;
@@ -195,6 +226,7 @@ input {
     margin: 1rem;
     height: 128px;
     width: 128px;
+    border-radius: 5%;
 }
 
 .roleButtons {
