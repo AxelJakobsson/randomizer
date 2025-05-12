@@ -32,14 +32,36 @@ var roleSupport = ["Alistar", "Amumu", "Bard", "Blitzcrank", "Brand", "Braum", "
 const movingSlider = document.querySelector(".slider")
 const supportButtonCoordinates = supportButton.getBoundingClientRect();
 
-input = document.querySelector(".number")
-input.addEventListener("keyup", function() {
-    num = input.value
-    console.log("number" + num)
-})
+const darkModeImage = document.getElementById("darkModeImage")
+const darkModeToggle_light = "images/light_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+const darkModeToggle_dark = "images/dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
 
+if (!localStorage.getItem("darkMode")){
+    console.log("no darkmode")
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.body.classList.add("dark-mode")
+        localStorage.setItem("darkMode", true)
+        darkModeImage.src = darkModeToggle_light
+        console.log("dark mode")
+    }
+    else {
+        document.body.classList.remove("dark-mode")
+        localStorage.setItem("darkMode", false)
+        darkModeImage.src = darkModeToggle_dark
+        console.log("light mode")
+    }
+}
 
-
+if (localStorage.getItem("darkMode") == "true") {
+    document.body.classList.add("dark-mode")
+    darkModeImage.src = darkModeToggle_light
+    console.log("localstorage dark")
+}
+else if (!localStorage.getItem("darkMode") == "false"){
+    document.body.classList.remove("dark-mode")
+    darkModeImage.src = darkModeToggle_dark
+    console.log("localstorage white")
+}
 
 function clickedRole(role) {
 
@@ -47,8 +69,7 @@ function clickedRole(role) {
     if (role == "topRole") {
         if (topRoleSelected) {
             topRoleSelected = false;
-            topButton.style.opacity = "0.5";
-            topButton.style.backgroundColor = "w"
+            topButton.style.opacity = "0.7";
         } else {
             topRoleSelected = true;
             topButton.style.opacity = "1";
@@ -57,7 +78,7 @@ function clickedRole(role) {
     if (role == "jungleRole") {
         if (jungleRoleSelected) {
             jungleRoleSelected = false;
-            jungleButton.style.opacity = "0.5";
+            jungleButton.style.opacity = "0.7";
         } else {
             jungleRoleSelected = true;
             jungleButton.style.opacity = "1";
@@ -66,7 +87,7 @@ function clickedRole(role) {
     if (role == "midRole") {
         if (midRoleSelected) {
             midRoleSelected = false;
-            midButton.style.opacity = "0.5";
+            midButton.style.opacity = "0.7";
         } else {
             midRoleSelected = true;
             midButton.style.opacity = "1";
@@ -75,7 +96,7 @@ function clickedRole(role) {
     if (role == "bottomRole") {
         if (bottomRoleSelected) {
             bottomRoleSelected = false;
-            bottomButton.style.opacity = "0.5";
+            bottomButton.style.opacity = "0.7";
         } else {
             bottomRoleSelected = true;
             bottomButton.style.opacity = "1";
@@ -84,7 +105,7 @@ function clickedRole(role) {
     if (role == "supportRole") {
         if (supportRoleSelected) {
             supportRoleSelected = false;
-            supportButton.style.opacity = "0.5";
+            supportButton.style.opacity = "0.7";
         } else {
             supportRoleSelected = true;
             supportButton.style.opacity = "1";
@@ -309,7 +330,18 @@ function moveMouse(event) {
 
 
 function switchDarkMode() {
+    if (document.body.classList.contains("dark-mode")) {
+        document.body.classList.remove("dark-mode")
+        localStorage.setItem("darkMode", false)
+        darkModeImage.src = darkModeToggle_dark
+    }
+    else {
+        document.body.classList.add("dark-mode")
+        localStorage.setItem("darkMode", true)
+        darkModeImage.src = darkModeToggle_light
+    }
     console.log("Dark mdoe")
+    console.log(localStorage.getItem("darkMode"))
 }
 
 // https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/Akali.png

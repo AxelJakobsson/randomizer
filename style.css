@@ -27,17 +27,25 @@
     --randomize-button-background-color: hsl(0,0%, 100%);
     --randomize-button-text-color: hsl(0, 0%, 0%);
     --text-on-background: hsl(0, 0%, 0%);
+    --slider-color: hsl(0, 0%, 100%);
+
+    --loader-color: hsl(210, 33%, 98%);
+    --loader-circle-color: hsl(0, 0%, 89%);
 }
 
 .dark-mode {
-    --background-color: hsl(3, 15%, 10%);
-    --text-color: hsl(0, 0%, 100%);
-    --header-button-text-color: hsl(340, 85%, 55%);
-    --header-button-color: hsl(0, 95%, 95%);
-    --header-background-color: hsl(0, 15%, 25%);
-    --randomize-button-background-color: hsl(0,10%, 90%);
+    --background-color: hsl(0, 0%, 12%);
+    --text-color: 	hsl(0, 0%, 89%);
+    --header-button-text-color: hsl(0, 0%, 89%);
+    --header-button-color: hsl(0, 0%, 45%);
+    --header-background-color: 	hsl(0, 0%, 12%);
+    --randomize-button-background-color: hsl(0, 0%, 88%);
     --randomize-button-text-color: hsl(0, 0%, 0%);
-    --text-on-background: hsl(0, 10%, 90%);
+    --text-on-background: hsl(0, 0%, 88%);
+    --slider-color: hsl(0, 0%, 100%);
+
+    --loader-color: hsl(0, 0%, 7%);
+    --loader-circle-color: hsl(0, 0%, 38%);
 }
 
 * {
@@ -136,7 +144,7 @@ header button {
     background: linear-gradient(
         0.25turn,
         transparent,
-        rgb(255, 213, 0),
+        var(--slider-color),
         transparent
     );
     width: 50px;
@@ -171,11 +179,15 @@ li a:hover {
     opacity: 1;
 }
 
-input {
-    margin: 16px 1.5rem;
-    height: 1.5rem;
+#darkModeSwitch {
+    margin-left: auto;
+    background: none;
+    height: auto;
+}
 
-    font-size: 1.1rem;
+#darkModeImage {
+    width: 3rem;
+    height: 3rem;
 }
 
 .grid {
@@ -196,6 +208,7 @@ input {
     justify-content: center;
 
     transition: opacity 0.15s;
+    color: var(--text-on-background);
 
 }
 
@@ -244,7 +257,7 @@ input {
     justify-content: center;
     align-items: center;
 
-    background-color: #f7f9fb;
+    background-color: var(--loader-color);
     transition: opacity 0.75s, visibility 0.75s;
 }
 
@@ -257,11 +270,12 @@ input {
     content: "";
     width: 75px;
     height: 75px;
-    border: 15px solid #dddddd;
+    border: 15px solid var(--loader-circle-color);
     border-top-color: #7449f5;
     border-radius: 50%;
     animation: loading 0.75s ease infinite;
 }
+
 
 @keyframes loading {
     from {

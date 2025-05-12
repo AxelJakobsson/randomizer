@@ -14,6 +14,30 @@ let searchButtonCoordinates = searchButton.getBoundingClientRect();
 
 const loader = document.querySelector(".loader");
 
+if (!localStorage.getItem("darkMode")){
+    console.log("no darkmode")
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.body.classList.add("dark-mode")
+        localStorage.setItem("darkMode", true)
+        console.log("dark mode")
+    }
+    else {
+        document.body.classList.remove("dark-mode")
+        localStorage.setItem("darkMode", false)
+        console.log("light mode")
+    }
+}
+
+if (localStorage.getItem("darkMode") == "true") {
+    document.body.classList.add("dark-mode")
+    console.log("localstorage dark")
+}
+else if (!localStorage.getItem("darkMode") == "false"){
+    document.body.classList.remove("dark-mode")
+    console.log("localstorage white")
+}
+
+
 
 fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
     .then((response) => response.json())
@@ -190,4 +214,17 @@ function moveMouse(event) {
     if (event.clientX > 26 && event.clientX < searchButtonCoordinates.right) {
         movingSlider.style.left = event.clientX-26 + "px";
     }
+}
+
+function switchDarkMode() {
+    if (document.body.classList.contains("dark-mode")) {
+        document.body.classList.remove("dark-mode")
+        localStorage.setItem("darkMode", false)
+    }
+    else {
+        document.body.classList.add("dark-mode")
+        localStorage.setItem("darkMode", true)
+    }
+    console.log("Dark mdoe")
+    console.log(localStorage.getItem("darkMode"))
 }

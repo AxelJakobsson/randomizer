@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body class="dark-mode">
+<body>
+    
+
     <header>
         <ul onmousemove="moveMouse(event)">
             <li><a href="/">Home</a></li>
@@ -18,17 +20,16 @@
             <button class="roleButtons" id="midRole" onclick="clickedRole(id)" >Mid</button>
             <button class="roleButtons" id="bottomRole" onclick="clickedRole(id)">Bot</button>
             <button class="roleButtons" id="supportRole" onclick="clickedRole(id)">Supp</button>
-            <button id="darkModeSwitch" onclick="switchDarkMode()">Dark mode</button>
+            <button id="darkModeSwitch" onclick="switchDarkMode()"><img src="images\dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Dark Mode" id="darkModeImage"></button>
         </ul>
         <div class="holder">
             <div class="slider"></div>
         </div>
         
     </header>
-    <input type="text" name="number" class="number" style="visibility: hidden;">
     <div class="container">
         <p id="champion_name"><b>...</b></p>
-        <img src="images\placeholder.png" id="champion_image">
+        <img src="images\placeholder.png" id="champion_image" alt="rolled champion">
         <p id="champion_owned"></p>
         <div>
             <button onclick="random_button()" id="random_button">Randomize</button>
@@ -36,6 +37,7 @@
     </div>
     <div id="tsparticles"></div>
     <div class="grid"></div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.8.1/tsparticles.confetti.bundle.min.js"></script>
