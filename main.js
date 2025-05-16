@@ -6,11 +6,11 @@ let previousRolledChampion = "a"
 let selectedChampion = "a"
 let previousRandom = 0
 
-topRoleSelected = false
-jungleRoleSelected = false
-midRoleSelected = false
-bottomRoleSelected = false
-supportRoleSelected = false
+topRoleSelected = true
+jungleRoleSelected = true
+midRoleSelected = true
+bottomRoleSelected = true
+supportRoleSelected = true
 
 currentlySpinning = false
 
@@ -26,7 +26,7 @@ lastX = 0
 var roleTop = ["Aatrox", "Akshan", "Ambessa", "Aurora", "Camille", "Cho'Gath", "Darius", "Dr. Mundo", "Fiora", "Gangplank", "Garen", "Gnar", "Gragas", "Gwem", "Heimerdinger", "Illaoi", "Irelia", "Jax", "Jayce", "K'Sante", "Kayle", "Kennen", "Kled", "Malphite", "Maokai", "Mordekaiser", "Nasus", "Olaf", "Ornn", "Pantheon", "Poppy", "Quinn", "Renekton", "Riven", "Rumble", "Sett", "Shen", "Shyvana", "Singed", "Sion", "Tahm Kench", "Teemo", "Trundle", "Tryndamere", "Urgot", "Vayne", "Volibear", "Warwick", "Yorick"]
 var roleJungle = ["Ambessa", "Amumu", "Bel'Veth", "Briar", "Diana", "Ekko", "Elise", "Evelynn", "Fiddlesticks", "Graves", "Gwen", "Hecarim", "Ivern", "Jarvan IV", "Karthus", "Kayn", "Kha'Zix", "Kindred", "Lee Sin", "Lillia", "Maokai", "Master Yi", "Naafiri", "Nidalee", "Nocturne", "Nunu & Willump", "Olaf", "Poppy", "Rammus", "Rek'Sai", "Rengar", "Sejuani", "Shaco", "Shyvana", "Skarner", "Taliyah", "Talon", "Trundle", "Udyr", "Vi", "Viego", "Volibear", "Warwick", "Wukong", "Xin Zhao", "Zac"]
 var roleMid = ["Ahri", "Akali", "Akshan", "Ambessa", "Anivia", "Annie", "Aurelion Sol", "Aurora", "Azir", "Cassiopeia", "Ekko", "Fizz", "Galio", "Heimerdinger", "Hwei", "Kassadin", "Katarina", "LeBlanc", "Lissandra", "Lux", "Malzahar", "Mel", "Naafiri", "Neeko", "Orianna", "Pantheon", "Qiyana", "Quinn", "Ryze", "Singed", "Swain", "Sylas", "Syndra", "Taliyah", "Talon", "Twisted Fate", "Veigar", "Vel'Koz", "Vex", "Viktor", "Vladimir", "Xerath", "Yasuo", "Yone", "Zed", "Ziggs", "Zoe"]
-var roleBottom = ["Aphelios", "Ashe", "Brand", "Caitlyn", "Corki", "Draven", "Ezreal", "Jhin", "Jinx", "Kai'Sa", "Kalista", "Kog'Maw", "Lucian", "Miss Fortune", "Nilah", "Samira", "Seraphine", "Sivir", "Smolder", "Swain", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", "Zeri", "Ziggs"]
+var roleBottom = ["Aphelios", "Ashe", "Brand", "Caitlyn", "Corki", "Draven", "Ezreal", "Jhin", "Jinx", "Kai'Sa", "Kalista", "Kog'Maw", "Lucian", "Miss Fortune", "Nilah", "Samira", "Seraphine", "Sivir", "Smolder", "Swain", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", , "Yasuo", "Zeri", "Ziggs"]
 var roleSupport = ["Alistar", "Amumu", "Bard", "Blitzcrank", "Brand", "Braum", "Janna", "Karma", "Leona", "Lulu", "Lux", "Maokai", "Milio", "Morgana", "Nami", "Nautilus", "Neeko", "Pantheon", "Poppy", "Pyke", "Rakan", "Rell", "Renata Glasc", "Senna", "Seraphine", "Sett", "Shaco", "Sona", "Soraka", "Swain", "Tahm Kench", "Taric", "Tresh", "Vel'Koz", "Xerath", "Yuumi", "Zilean", "Zyra"]
 
 const movingSlider = document.querySelector(".slider")
@@ -62,6 +62,7 @@ else if (!localStorage.getItem("darkMode") == "false"){
     darkModeImage.src = darkModeToggle_dark
     console.log("localstorage white")
 }
+
 
 function clickedRole(role) {
 
@@ -170,7 +171,7 @@ function random_button() {
 
             console.log(validChamps)
             if (validChamps.length === 0) {
-                alert("All champions are filtered out")
+                alert("no valid champions")
                 return;
             }
 

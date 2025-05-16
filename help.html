@@ -3,34 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter</title>
-    
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <ul onmousemove="moveMouse(event)">
+        <ul>
             <li><a href="/">Home</a></li>
             <li ><a href="filter.html">Filter</a></li>
             <li><a href="help.html">Help</a></li>
-
-            <button onclick="clearStorage()">Clear</button>
-            <button onclick="filterAll()" class="filterButton">Filter all</button>
-            <input type="text" onkeyup="search()" id="searchValue">
             <button id="darkModeSwitch" onclick="switchDarkMode()"><img src="images\dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Dark Mode" id="darkModeImage"></button>
         </ul>
-        <div class="holder">
-            <div class="slider"></div>
-        </div>
     </header>
+    <h1>a</h1>
 
-    <div class="grid">
-
-    </div>
-
-    <div class="loader"></div>
+    <button onclick="openClass(1)">Open help 1</button>
+    <div class="help1">aaaaa</div>
 
 
-    <script src="filter.js"></script>
+
+    <script src="help.js"></script>
 </body>
 </html>

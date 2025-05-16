@@ -1,3 +1,7 @@
+const darkModeImage = document.getElementById("darkModeImage")
+const darkModeToggle_light = "images/light_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+const darkModeToggle_dark = "images/dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+
 let loading = true
 
 let defaultBackgroundColor = document.body.style.backgroundColor
@@ -19,21 +23,25 @@ if (!localStorage.getItem("darkMode")){
     if (window.matchMedia('(prefers-color-scheme: dark)').matches){
         document.body.classList.add("dark-mode")
         localStorage.setItem("darkMode", true)
+        darkModeImage.src = darkModeToggle_light
         console.log("dark mode")
     }
     else {
         document.body.classList.remove("dark-mode")
         localStorage.setItem("darkMode", false)
+        darkModeImage.src = darkModeToggle_dark
         console.log("light mode")
     }
 }
 
 if (localStorage.getItem("darkMode") == "true") {
     document.body.classList.add("dark-mode")
+    darkModeImage.src = darkModeToggle_light
     console.log("localstorage dark")
 }
 else if (!localStorage.getItem("darkMode") == "false"){
     document.body.classList.remove("dark-mode")
+    darkModeImage.src = darkModeToggle_dark
     console.log("localstorage white")
 }
 
@@ -115,15 +123,29 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
 
 function clearStorage() {
     if (confirm("Are you sure?")) {
+        if (document.body.classList.contains("dark-mode")) {
+            darkModeOn = true
+        }
+        else {
+            darkModeOn = false
+        }
         console.log("approved storage clear")
         map.forEach(element => {
             localStorage.clear()
             setOpacity(1, element.img, element.p)
         })
+        if (darkModeOn == true) {
+            localStorage.setItem("darkMode", true)
+        }
+        else {
+            localStorage.setItem("darkMode", false)
+        }
+
     }
     else {
         console.log("dénied storage clear")
     }
+
 }
 
 function filterAll() {
@@ -220,10 +242,12 @@ function switchDarkMode() {
     if (document.body.classList.contains("dark-mode")) {
         document.body.classList.remove("dark-mode")
         localStorage.setItem("darkMode", false)
+        darkModeImage.src = darkModeToggle_dark
     }
     else {
         document.body.classList.add("dark-mode")
         localStorage.setItem("darkMode", true)
+        darkModeImage.src = darkModeToggle_light
     }
     console.log("Dark mdoe")
     console.log(localStorage.getItem("darkMode"))

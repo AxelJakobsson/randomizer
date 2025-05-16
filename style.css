@@ -21,9 +21,9 @@
 :root {
     --background-color: hsl(3, 100%, 90%);
     --text-color: hsl(0, 0%, 100%);
-    --header-button-text-color: hsl(340, 85%, 55%);
-    --header-button-color: hsl(0, 95%, 95%);
-    --header-background-color: hsl(340, 85%, 55%);
+    --header-button-text-color: 	hsl(341, 66%, 51%);
+    --header-button-color: hsl(0, 92%, 95%);
+    --header-background-color: 	hsl(341, 66%, 51%);
     --randomize-button-background-color: hsl(0,0%, 100%);
     --randomize-button-text-color: hsl(0, 0%, 0%);
     --text-on-background: hsl(0, 0%, 0%);
@@ -44,7 +44,7 @@
     --text-on-background: hsl(0, 0%, 88%);
     --slider-color: hsl(0, 0%, 100%);
 
-    --loader-color: hsl(0, 0%, 7%);
+    --loader-color: hsl(0, 0%, 12%);
     --loader-circle-color: hsl(0, 0%, 38%);
 }
 
@@ -243,7 +243,6 @@ li a:hover {
 }
 
 .roleButtons {
-    opacity: 0.5;
     min-width: 55px;
 }
 
@@ -300,6 +299,11 @@ li a:hover {
 canvas {
     pointer-events: none;
 }
+
+.help1 {
+    display: none;
+}
+
 
 @media screen and (width <= 600px) {
     header > ul {
