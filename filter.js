@@ -8,7 +8,7 @@ let defaultBackgroundColor = document.body.style.backgroundColor
 
 let map = [];
 
-let totalImages = 170; 
+let totalImages = 80; 
 let loadedImages = 0; 
 
 const movingSlider = document.querySelector(".slider")
