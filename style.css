@@ -21,7 +21,9 @@
 :root {
     --background-color: hsl(3, 100%, 90%);
     --text-color: hsl(0, 0%, 100%);
-    --header-button-text-color: 	hsl(341, 66%, 51%);
+    --large-text-color:hsl(0, 98%, 35%);
+    --help-text-color: hsl(0, 0%, 0%);
+    --header-button-text-color:1hsl(341, 66%, 51%);
     --header-button-color: hsl(0, 92%, 95%);
     --header-background-color: 	hsl(341, 66%, 51%);
     --randomize-button-background-color: hsl(0,0%, 100%);
@@ -35,7 +37,9 @@
 
 .dark-mode {
     --background-color: hsl(0, 0%, 12%);
-    --text-color: 	hsl(0, 0%, 89%);
+    --text-color: hsl(0, 0%, 89%);
+    --large-text-color: hsl(0, 0%, 89%);
+    --help-text-color: hsl(300, 100%, 79%);
     --header-button-text-color: hsl(0, 0%, 89%);
     --header-button-color: hsl(0, 0%, 45%);
     --header-background-color: 	hsl(0, 0%, 12%);
@@ -300,8 +304,68 @@ canvas {
     pointer-events: none;
 }
 
-.help1 {
+.helpContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    align-items: center;
+}
+.helpContainer button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: fit-content
+}
+/* .helpContainer div{
+    width: 80vw;
     display: none;
+    color: var(--help-text-color);
+} */
+
+
+.helpContainer div {
+    width: 80vw;
+    display: none;
+    color: var(--help-text-color);
+    text-align: center;
+}
+
+.helpContainer div div {
+    display: inline-table;
+    width: fit-content;
+    margin: 1rem;
+}
+
+/* <div class="displayTop"></div>
+<div class="displayJungle"></div>
+<div class="displayMiddle"></div>
+<div class="displayBottom"></div>
+<div class="displaySupport"></div> */
+
+.displayTop {
+    
+}
+
+/* .displayJungle {
+    margin-left: 10rem;
+}
+
+.displayMiddle {
+    margin-left: 20rem;
+}
+
+.displayBottom {
+    margin-left: 30rem;
+}
+
+.displaySupport {
+    margin-left: 40rem;
+} */
+
+
+.helpContainer h1 {
+    color: var(--large-text-color);
 }
 
 
