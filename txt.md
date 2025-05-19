@@ -11,6 +11,8 @@ Det finns också en toggle för light mode och dark mode på sidan, när man fö
 
 För att byta färger från dark- och light mode så använder jag mig av variabler för färgerna i css. Light mode variablerna är i rooten och dark mode variablerna är i en klass som jag sedan lägger till på bodyn ifall dark mode är på. 
 
+ska ändra sök saken så att det är bara ifall det börjar på söktermen
+
 # Problemlösning
 
 # Dokumentation
