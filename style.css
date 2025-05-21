@@ -26,6 +26,7 @@
     --header-button-text-color:1hsl(341, 66%, 51%);
     --header-button-color: hsl(0, 92%, 95%);
     --header-background-color: 	hsl(341, 66%, 51%);
+    --header-border-color: hsl(3, 100%, 90%);
     --randomize-button-background-color: hsl(0,0%, 100%);
     --randomize-button-text-color: hsl(0, 0%, 0%);
     --text-on-background: hsl(0, 0%, 0%);
@@ -43,6 +44,7 @@
     --header-button-text-color: hsl(0, 0%, 89%);
     --header-button-color: hsl(0, 0%, 45%);
     --header-background-color: 	hsl(0, 0%, 12%);
+    --header-border-color: hsl(0, 0%, 89%);
     --randomize-button-background-color: hsl(0, 0%, 88%);
     --randomize-button-text-color: hsl(0, 0%, 0%);
     --text-on-background: hsl(0, 0%, 88%);
@@ -98,9 +100,17 @@ body {
 
 header {
     top: 0;
-    background-color: var(--header-background-color);
     opacity: 1;
     width: 100%;
+    margin: auto;
+
+    background-color: var(--header-background-color);
+}
+
+body.dark-mode header {
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-image: repeating-linear-gradient(to right, white 0%, white 10px, transparent 10px, transparent 20px) 1;
 }
 
 header > ul {
