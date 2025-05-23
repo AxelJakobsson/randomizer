@@ -15,11 +15,20 @@
             <button id="darkModeSwitch" onclick="switchDarkMode()"><img src="images\dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Dark Mode" id="darkModeImage"></button>
         </ul>
     </header>
-    <h1>a</h1>
 
     <div class="helpContainer">
-        <button onclick="openClass(1)"><h1>Show champions in the roles</h1></button>
-        <div class="help1">
+
+
+        <button onclick="openClass(1)"><h1>How the filter tab works</h1></button>
+        <div class="help1">You select the champions that you want to be able to roll. If they are semi-transparent it means that they can't be rolled from the home page. <br><br><button class="example">Filter all </button> deselects all the champions, useful if you only want a few champions to be able to be selected.<br><br><button class="example">Clear</button>button makes all the champions active again, so you can roll all of them. </div>
+
+
+        <button onclick="openClass(2)"><h1>Home page</h1></button>
+        <div class="help2">Click the randomize button to get a random champion from the ones that are available. <br>Available champions are based on the selected ones in filter, and the roles selected in the home page.</div>
+
+
+        <button onclick="openClass(3)"><h1>Show champions in the roles</h1></button>
+        <div class="help3">
             <p>all the champions in their roles that you pick on home page</p>
             <div class="displayTop"><h2>TOP</h2>_____</div>
             <div class="displayJungle"><h2>JUNGLE</h2>_____</div>
@@ -27,10 +36,9 @@
             <div class="displayBottom"><h2>BOTTOM</h2>_____</div>
             <div class="displaySupport"><h2>SUPPORT</h2>_____</div>
         </div>
-
-        <button onclick="openClass(2)"><h1>Open help 2</h1></button>
-        <div class="help2">aaaada</div>
     </div>
+
+   
 
 
     <script src="help.js"></script>
