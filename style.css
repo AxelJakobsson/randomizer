@@ -362,33 +362,6 @@ canvas {
     margin: 1rem;
 }
 
-/* <div class="displayTop"></div>
-<div class="displayJungle"></div>
-<div class="displayMiddle"></div>
-<div class="displayBottom"></div>
-<div class="displaySupport"></div> */
-
-.displayTop {
-    
-}
-
-/* .displayJungle {
-    margin-left: 10rem;
-}
-
-.displayMiddle {
-    margin-left: 20rem;
-}
-
-.displayBottom {
-    margin-left: 30rem;
-}
-
-.displaySupport {
-    margin-left: 40rem;
-} */
-
-
 .helpContainer h1 {
     color: var(--large-text-color);
     margin-top: 1rem;
