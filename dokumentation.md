@@ -11,12 +11,7 @@ Det finns också en toggle för light mode och dark mode på sidan, när man fö
 
 För att byta färger från dark- och light mode så använder jag mig av variabler för färgerna i css. Light mode variablerna är i rooten och dark mode variablerna är i en klass som jag sedan lägger till på bodyn ifall dark mode är på. 
 
-ska ändra sök saken så att det är bara ifall det börjar på söktermen
+ska ändra sök saken så att det är bara ifall det börjar på söktermen -- nej
 
-# Problemlösning
-
-# Dokumentation
-
-# Analys och reflektion
-
-
+# Hur jag har testat sidan
+Jag har testat sidan med Wave och gjort ändringar beroende på fel som jag har fått. En sådan sak är att roll knapparna på home sidan var inaktiverade från default, men tydligen så ska knappar vara aktiva sedan början för att det gör det lättare att se eller något sådant.
