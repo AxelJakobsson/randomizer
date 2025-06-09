@@ -1,49 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>League of Legends Randomizer</title>
-    <link rel="stylesheet" href="style.css">
-
-    <meta name="google-site-verification" content="2CTiQTyFHLxMUdoki7SLODbSi84aTfGy8ti_Sp0jKs0" />
-    
-</head>
-<body>
-    
-
-    <header>
-        <ul onmousemove="moveMouse(event)">
-            <li><a href="/randomizer">Home</a></li>
-            <li ><a href="filter.html">Filter</a></li>
-            <li><a href="help.html">Help</a></li>
-            <button class="roleButtons" id="topRole" onclick="clickedRole(id)">Top</button>
-            <button class="roleButtons" id="jungleRole" onclick="clickedRole(id)">Jg</button>
-            <button class="roleButtons" id="midRole" onclick="clickedRole(id)" >Mid</button>
-            <button class="roleButtons" id="bottomRole" onclick="clickedRole(id)">Bot</button>
-            <button class="roleButtons" id="supportRole" onclick="clickedRole(id)">Supp</button>
-            <button id="darkModeSwitch" onclick="switchDarkMode()"><img src="images\dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Dark Mode" id="darkModeImage"></button>
-        </ul>
-        <div class="holder">
-            <div class="slider"></div>
-        </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>League of Legends Randomizer - Pick Random Champions</title>
+        <link rel="stylesheet" href="style.css">
         
-    </header>
-    <div class="container">
-        <p id="champion_name"><b>...</b></p>
-        <img src="images\placeholder.png" id="champion_image" alt="rolled champion">
-        <p id="champion_owned"></p>
-        <div>
-            <button onclick="random_button()" id="random_button">Randomize</button>
+        <meta name="description" content="Use this free League of Legends randomizer to pick random champions for any role or game mode. Great for fun challenges or ARAM practice!">
+
+        <meta name="google-site-verification" content="2CTiQTyFHLxMUdoki7SLODbSi84aTfGy8ti_Sp0jKs0" />
+        
+    </head>
+    <body>
+        
+        <header>
+            <ul onmousemove="moveMouse(event)">
+                <li><a href="/randomizer">Home</a></li>
+                <li ><a href="filter.html">Filter</a></li>
+                <li><a href="help.html">Help</a></li>
+                <button class="roleButtons" id="topRole" onclick="clickedRole(id)">Top</button>
+                <button class="roleButtons" id="jungleRole" onclick="clickedRole(id)">Jg</button>
+                <button class="roleButtons" id="midRole" onclick="clickedRole(id)" >Mid</button>
+                <button class="roleButtons" id="bottomRole" onclick="clickedRole(id)">Bot</button>
+                <button class="roleButtons" id="supportRole" onclick="clickedRole(id)">Supp</button>
+                <button id="darkModeSwitch" onclick="switchDarkMode()"><img src="images\dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Dark Mode" id="darkModeImage"></button>
+            </ul>
+            <div class="holder">
+                <div class="slider"></div>
+            </div>
+            
+        </header>
+        <h1>League of Legends Randomizer</h1>
+        <div class="container">
+            <p id="champion_name"><b>...</b></p>
+            <img src="images\placeholder.png" id="champion_image" alt="rolled champion">
+            <p id="champion_owned"></p>
+            <div>
+                <button onclick="random_button()" id="random_button">Randomize</button>
+            </div>
         </div>
-    </div>
-    <div id="tsparticles"></div>
-    <div class="grid"></div>
+        <div id="tsparticles"></div>
+        <div class="grid"></div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.8.1/tsparticles.confetti.bundle.min.js"></script>
-<script src="main.js"></script>
-</body>    
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.8.1/tsparticles.confetti.bundle.min.js"></script>
+    <script src="main.js"></script>
+    </body>    
 
-</html>
+    </html>
