@@ -17,6 +17,7 @@ let searchButton = document.querySelector("#searchValue")
 let searchButtonCoordinates = searchButton.getBoundingClientRect();
 
 const loader = document.querySelector(".loader");
+loader.classList.add("loader-hidden")
 
 if (!localStorage.getItem("darkMode")){
     console.log("no darkmode")
@@ -57,8 +58,6 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             const container = document.createElement("div") // div containing text and image
             container.className = element.name.replace(/[ '.&]/g, "") + "_div"
             
-
-
             const img = document.createElement("img")
             element.img = img
             img.src = "https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/" + element.image.full
@@ -86,7 +85,6 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             
             function clicked() {
                 if (img.style.opacity == "1") {
-                    
                     setOpacity(0.5, element.img, element.p)
                     element.owned = false
                     localStorage.setItem(element.name, element.owned)
@@ -123,6 +121,7 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
 
 function clearStorage() {
     if (confirm("Are you sure?")) {
+        localStorage.clear()
         if (document.body.classList.contains("dark-mode")) {
             darkModeOn = true
         }
@@ -131,7 +130,6 @@ function clearStorage() {
         }
         console.log("approved storage clear")
         map.forEach(element => {
-            localStorage.clear()
             setOpacity(1, element.img, element.p)
         })
         if (darkModeOn == true) {

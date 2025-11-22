@@ -271,8 +271,8 @@ li a:hover {
 #champion_image {
     /* display: none; */
     margin: 1rem;
-    height: 128px;
-    width: 128px;
+    height: 140px;
+    width: 140px;
     border-radius: 5%;
 }
 

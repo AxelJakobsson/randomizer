@@ -1,0 +1,19 @@
+.players-grid {
+  display: grid;  
+  grid-template-columns: 1fr 1fr;
+  max-width: 40rem;
+  margin: auto;
+  gap: 20px;
+}
+
+.player-card {
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.team-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

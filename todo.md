@@ -1,0 +1,1 @@
+Add cs, items, gray icon if someone is dead and respawning? vision score, summoner spells, add the item descriptions when you hover over them
