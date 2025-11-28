@@ -84,6 +84,8 @@ function mobileMediaQuery(e) {
 
 mql.addEventListener("change", mobileMediaQuery);
 
+let container; 
+let handleClickOutside;
 
 
 function allRoleButtonClicked() {
@@ -91,17 +93,18 @@ function allRoleButtonClicked() {
 
     if (existingPopup) {
         console.log("already exists")
-        // Close the popup
-        existingPopup.remove();
-        document.querySelectorAll("body *").forEach(el => el.style.filter = "");
-        return; // stop here
+        existingPopup.style.display = "flex"
+        if (handleClickOutside) {
+            setTimeout(() => { // slight delay to avoid immediate trigger
+                document.addEventListener("click", handleClickOutside);
+            }, 0);
+        }
+        return;
     }
 
 
-
-
     console.log("hi")
-    const container = document.createElement("div")
+    container = document.createElement("div")
     container.style.backgroundColor = "var(--header-background-color)"
     container.style.border = "2px solid hsl(3, 100%, 90%)"
     container.id = "rolePopup";
@@ -139,14 +142,19 @@ function allRoleButtonClicked() {
         button.style.margin = "auto";
 
         button.addEventListener("click", () => clickedRole(button.id)); 
-
         container.appendChild(button);
+    })
+    document.body.appendChild(container);
+
+    const others = document.querySelectorAll("body *:not(#rolePopup):not(.roleButtons)");
+    others.forEach(el => {
+        el.style.filter = "blur(0.8px)";
     });
 
 function handleClickOutside(event) {
         if (!container.contains(event.target)) {
             // Remove popup
-            container.remove();
+            container.style.display = "none"
 
             // Remove blur
             document.querySelectorAll("body *").forEach(el => {
@@ -162,14 +170,6 @@ function handleClickOutside(event) {
     setTimeout(() => { // slight delay to avoid immediate trigger
         document.addEventListener("click", handleClickOutside);
     }, 0);
-
-
-    document.querySelector("body").appendChild(container)
-
-    const others = document.querySelectorAll("body *:not(#rolePopup):not(.roleButtons)");
-    others.forEach(el => {
-        el.style.filter = "blur(0.8px)";
-    });
 }
 
 
