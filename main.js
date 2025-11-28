@@ -20,6 +20,8 @@ const midButton = document.getElementById("midRole")
 const bottomButton = document.getElementById("bottomRole")
 const supportButton = document.getElementById("supportRole")
 
+const allRoleButton = document.getElementById("allRole")
+
 let roleSelectedChampions = []
 lastX = 0
 
@@ -29,12 +31,17 @@ var roleMid = ["Ahri", "Akali", "Akshan", "Ambessa", "Anivia", "Annie", "Aurelio
 var roleBottom = ["Aphelios", "Ashe", "Brand", "Caitlyn", "Corki", "Draven", "Ezreal", "Jhin", "Jinx", "Kai'Sa", "Kalista", "Kog'Maw", "Lucian", "Miss Fortune", "Nilah", "Samira", "Seraphine", "Sivir", "Smolder", "Swain", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", , "Yasuo", "Zeri", "Ziggs"]
 var roleSupport = ["Alistar", "Amumu", "Bard", "Blitzcrank", "Brand", "Braum", "Janna", "Karma", "Leona", "Lulu", "Lux", "Maokai", "Milio", "Morgana", "Nami", "Nautilus", "Neeko", "Pantheon", "Poppy", "Pyke", "Rakan", "Rell", "Renata Glasc", "Senna", "Seraphine", "Sett", "Shaco", "Sona", "Soraka", "Swain", "Tahm Kench", "Taric", "Tresh", "Vel'Koz", "Xerath", "Yuumi", "Zilean", "Zyra"]
 
+
+
 const movingSlider = document.querySelector(".slider")
 const supportButtonCoordinates = supportButton.getBoundingClientRect();
 
 const darkModeImage = document.getElementById("darkModeImage")
 const darkModeToggle_light = "images/light_mode_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
 const darkModeToggle_dark = "images/dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+
+const mql = window.matchMedia("(width <= 700px)");
+
 
 if (!localStorage.getItem("darkMode")){
     console.log("no darkmode")
@@ -63,53 +70,174 @@ else if (!localStorage.getItem("darkMode") == "false"){
     console.log("localstorage white")
 }
 
+console.log(topButton.style.display)
+function mobileMediaQuery(e) {
+    if (e.matches) {
+        console.log("below 700px")
+        allRoleButton.style.display = "block"
+    }
+    else {
+        console.log("over 700px")
+        allRoleButton.style.display = "none"
+    }
+}
+
+mql.addEventListener("change", mobileMediaQuery);
+
+
+
+function allRoleButtonClicked() {
+    const existingPopup = document.querySelector("#rolePopup");
+
+    if (existingPopup) {
+        console.log("already exists")
+        // Close the popup
+        existingPopup.remove();
+        document.querySelectorAll("body *").forEach(el => el.style.filter = "");
+        return; // stop here
+    }
+
+
+
+
+    console.log("hi")
+    const container = document.createElement("div")
+    container.style.backgroundColor = "var(--header-background-color)"
+    container.style.border = "2px solid hsl(3, 100%, 90%)"
+    container.id = "rolePopup";
+
+    container.style.width = "20rem";
+    container.style.height = "40rem";
+    container.style.position = "absolute";
+
+    container.style.display = "flex"
+    container.style.flexDirection = "column"
+
+    container.style.top = "52%";
+    container.style.left = "50%";
+    container.style.transform = "translate(-50%, -50%)"; // centers it
+    
+
+    const roles = ["Top", "Jungle", "Mid", "Bottom", "Support"];
+        roles.forEach(role => {
+        const button = document.createElement("button");
+        button.textContent = role;
+        button.id = role.toLowerCase() + "Role";
+        button.setAttribute("data-popup", "true");
+        button.className = "roleButtons";
+
+        // apply styles via JS instead of an inline CSS block
+        button.style.height = "4rem";
+        button.style.minWidth = "4rem";
+        button.style.width = "12rem"
+        button.style.color = "var(--header-button-text-color)";
+        button.style.backgroundColor = "var(--header-button-color)";
+        button.style.border = "none";
+        button.style.borderRadius = "6.5%";
+        button.style.padding = "0.1rem";
+        button.style.fontSize = "1rem";
+        button.style.margin = "auto";
+
+        button.addEventListener("click", () => clickedRole(button.id)); 
+
+        container.appendChild(button);
+    });
+
+function handleClickOutside(event) {
+        if (!container.contains(event.target)) {
+            // Remove popup
+            container.remove();
+
+            // Remove blur
+            document.querySelectorAll("body *").forEach(el => {
+                el.style.filter = "";
+            });
+
+            // Remove this listener
+            document.removeEventListener("click", handleClickOutside);
+        }
+    }
+
+    // Attach click listener to document
+    setTimeout(() => { // slight delay to avoid immediate trigger
+        document.addEventListener("click", handleClickOutside);
+    }, 0);
+
+
+    document.querySelector("body").appendChild(container)
+
+    const others = document.querySelectorAll("body *:not(#rolePopup):not(.roleButtons)");
+    others.forEach(el => {
+        el.style.filter = "blur(0.8px)";
+    });
+}
+
+
+allRoleButton.addEventListener("click", allRoleButtonClicked)
+
+
+
+
+
 
 function clickedRole(role) {
 
+    
 
     if (role == "topRole") {
         if (topRoleSelected) {
+            console.log("a")
             topRoleSelected = false;
             topButton.style.opacity = "0.7";
+            document.querySelector('#topRole[data-popup="true"]').style.opacity = "0.7"
         } else {
             topRoleSelected = true;
             topButton.style.opacity = "1";
+            document.querySelector('#topRole[data-popup="true"]').style.opacity = "1"
         }
     }
     if (role == "jungleRole") {
         if (jungleRoleSelected) {
             jungleRoleSelected = false;
             jungleButton.style.opacity = "0.7";
+            document.querySelector('#jungleRole[data-popup="true"]').style.opacity = "0.7"
         } else {
             jungleRoleSelected = true;
             jungleButton.style.opacity = "1";
+            document.querySelector('#jungleRole[data-popup="true"]').style.opacity = "1"
         }
     }
     if (role == "midRole") {
         if (midRoleSelected) {
             midRoleSelected = false;
             midButton.style.opacity = "0.7";
+            document.querySelector('#midRole[data-popup="true"]').style.opacity = "0.7"
         } else {
             midRoleSelected = true;
             midButton.style.opacity = "1";
+            document.querySelector('#midRole[data-popup="true"]').style.opacity = "1"
         }
     }
     if (role == "bottomRole") {
         if (bottomRoleSelected) {
             bottomRoleSelected = false;
             bottomButton.style.opacity = "0.7";
+            document.querySelector('#bottomRole[data-popup="true"]').style.opacity = "0.7"
         } else {
             bottomRoleSelected = true;
             bottomButton.style.opacity = "1";
+            document.querySelector('#bottomRole[data-popup="true"]').style.opacity = "1"
         }
     }
     if (role == "supportRole") {
         if (supportRoleSelected) {
             supportRoleSelected = false;
             supportButton.style.opacity = "0.7";
+            document.querySelector('#supportRole[data-popup="true"]').style.opacity = "0.7"
         } else {
             supportRoleSelected = true;
             supportButton.style.opacity = "1";
+            document.querySelector('#supportRole[data-popup="true"]').style.opacity = "1"
         }
     }
 }
@@ -234,9 +362,13 @@ function random_button() {
                 if (alreadyRolled < amountOfRolls) {
 
                     var random = Math.floor(Math.random() * validChamps.length);
-                    while (random == previousRandom) {
+                    console.log(validChamps.length)
+                    if (validChamps.length > 1) { // make sure it doesnt break if only 1 champion is valid
+                        while (random == previousRandom) { // make sure that it doesnt roll the same champion in a row so it looks better when spinning
                         random = Math.floor(Math.random() * validChamps.length);
+                        }
                     }
+                    
 
                     for (i = 0; i < map.length; i++) {
                         if (map[i].name == validChamps[random]) {

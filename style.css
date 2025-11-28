@@ -280,6 +280,10 @@ li a:hover {
     min-width: 55px;
 }
 
+#allRole {
+    display: none;
+}
+
 .loader {
     position: fixed;
     top: 0;
@@ -389,3 +393,45 @@ canvas {
         margin-top: 4rem;
     }
   }
+
+
+
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    header #supportRole, header #midRole, header #bottomRole, header #jungleRole, header #topRole {
+        display: none;
+    }
+
+    #allRole {
+        display: block;
+        max-width: none;
+        margin: auto;
+        width: 10rem;
+        font-size: 1.2rem;
+    }
+
+    body.home-page header button {
+        margin: 0;
+    }
+
+    body.filter-page li, body.filter-page header button {
+        margin: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    header input {
+        width: 20vw;
+    }
+
+
+    @media (max-width: 420px) {
+        #allRole {
+            width: fit-content;
+        }
+    }
+}
+
+
