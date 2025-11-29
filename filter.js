@@ -8,7 +8,7 @@ let defaultBackgroundColor = document.body.style.backgroundColor
 
 let map = [];
 
-let totalImages = 80; 
+let totalImages = 150; 
 let loadedImages = 0; 
 
 const movingSlider = document.querySelector(".slider")
@@ -17,7 +17,7 @@ let searchButton = document.querySelector("#searchValue")
 let searchButtonCoordinates = searchButton.getBoundingClientRect();
 
 const loader = document.querySelector(".loader");
-loader.classList.add("loader-hidden")
+loader.classList.remove("loader-hidden")
 
 if (!localStorage.getItem("darkMode")){
     console.log("no darkmode")
@@ -51,7 +51,11 @@ else if (!localStorage.getItem("darkMode") == "false"){
 fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
     .then((response) => response.json())
     .then((json) => {
-        map = Object.keys(json.data).map((key) => json.data[key])
+        map = Object.keys(json.data).map((key) => json.data[key])   
+
+
+        const docFrag = document.createDocumentFragment();
+
   
         map.forEach(element => {
 
@@ -99,9 +103,11 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
             container.appendChild(img)
             container.appendChild(p)
 
-            document.querySelector(".grid").appendChild(container)
+            docFrag.appendChild(container);
 
-            customChar(element.name)
+            // document.querySelector(".grid").appendChild(container)
+
+            // customChar(element.name)
 
             element.owned = localStorage.getItem(element.name) === "true"
             if (localStorage.getItem(element.name) == null) {
@@ -117,6 +123,8 @@ fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
                 setOpacity(1, img, p)
             }
         });
+
+        document.querySelector(".grid").appendChild(docFrag)
 });
 
 function clearStorage() {
