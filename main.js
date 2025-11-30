@@ -84,6 +84,22 @@ function mobileMediaQuery(e) {
 
 mql.addEventListener("change", mobileMediaQuery);
 
+
+
+fetch("https://ddragon.leagueoflegends.com/cdn/15.7.1/data/en_US/champion.json")
+    .then(response => response.json())
+    .then(json => {
+        const champs = Object.values(json.data);
+
+        champs.forEach(champ => {
+            const img = new Image();
+            img.src = "https://ddragon.leagueoflegends.com/cdn/15.7.1/img/champion/" + champ.image.full;
+        });
+});
+
+
+
+
 let container; 
 let handleClickOutside;
 
@@ -242,7 +258,8 @@ function clickedRole(role) {
     }
 }
 
-function random_button() {  
+function random_button() { 
+     
     console.log(currentlySpinning)
     if (!currentlySpinning) { // Start the randomizer if there isnt already one ongoing
         currentlySpinning = true
