@@ -71,6 +71,9 @@ body {
     width: 100%;
 }
 
+
+
+
 h1 {
     text-align: center;
     margin-top: 1rem;
@@ -226,13 +229,15 @@ li a:hover {
 }
 
 .grid {
-    width: 100%;
+    width: 98%;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: left;
+    /* justify-content: left; */
+    justify-content: space-between;
 
     margin: 1rem;
+    margin-right: 2rem;
 }
 
 .grid p {
@@ -260,6 +265,9 @@ li a:hover {
 
 .grid img {
     border-radius: 3px;
+
+    /* height: auto;
+    width: 7vw; */
 
     transition: all 0.15s;
 }
