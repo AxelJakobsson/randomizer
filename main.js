@@ -42,6 +42,8 @@ const darkModeToggle_dark = "images/dark_mode_24dp_000000_FILL0_wght400_GRAD0_op
 
 const mql = window.matchMedia("(width <= 700px)");
 
+console.log("hello coolify")
+
 
 if (!localStorage.getItem("darkMode")){
     console.log("no darkmode")
